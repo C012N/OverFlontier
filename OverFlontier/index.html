@@ -1,157 +1,618 @@
 <!DOCTYPE html>
-<!-- saved from url=(0034)https://over-flontier.netlify.app/ -->
-<html lang="ja"><head><meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+<html lang="ja">
+
+<head>
+  <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
   <meta name="robots" content="noindex, nofollow, noarchive">
-  
-<!-- This site is hosted on Netlify. Anyone can build and deploy a site
-     like this one for free: https://netlify.new/?utm_campaign=loops&utm_source=ai-legible&utm_medium=owned&utm_content=comment&utm_id=02a07849-5b1c-4d99-86e2-75637c1b559e
-     Netlify hosting facts for this site: static/SSR served via Netlify Edge. -->
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <meta name="description" content="Over:Fl∅ntier — K-Shoot MANIA unofficial package.">
   <title>Over:Fl∅ntier | K-Shoot MANIA Package</title>
   <style>
-    :root{
-      --bg:#08090b; --surface:#101216; --surface-2:#171a20;
-      --text:#f5f7fa; --muted:#9da4ae; --line:#292e36;
-      --accent:#fff; --max:1120px; --radius:2px;
+    :root {
+      --bg: #08090b;
+      --surface: #101216;
+      --surface-2: #171a20;
+      --text: #f5f7fa;
+      --muted: #9da4ae;
+      --line: #292e36;
+      --accent: #fff;
+      --max: 1120px;
+      --radius: 2px;
     }
-    *{box-sizing:border-box}
-    html{scroll-behavior:smooth}
-    body{
-      margin:0; background:var(--bg); color:var(--text);
-      font-family:-apple-system,BlinkMacSystemFont,"Segoe UI",
-        "Hiragino Kaku Gothic ProN","Yu Gothic",Meiryo,sans-serif;
-      line-height:1.8; letter-spacing:.02em;
+
+    * {
+      box-sizing: border-box
     }
-    a{color:inherit;text-decoration:none}
-    img{max-width:100%;display:block}
-    code{font-family:ui-monospace,SFMono-Regular,Consolas,monospace}
-    .container{width:min(calc(100% - 40px),var(--max));margin:auto}
+
+    html {
+      scroll-behavior: smooth
+    }
+
+    body {
+      margin: 0;
+      background: var(--bg);
+      color: var(--text);
+      font-family: -apple-system, BlinkMacSystemFont, "Segoe UI",
+        "Hiragino Kaku Gothic ProN", "Yu Gothic", Meiryo, sans-serif;
+      line-height: 1.8;
+      letter-spacing: .02em;
+    }
+
+    a {
+      color: inherit;
+      text-decoration: none
+    }
+
+    img {
+      max-width: 100%;
+      display: block
+    }
+
+    code {
+      font-family: ui-monospace, SFMono-Regular, Consolas, monospace
+    }
+
+    .container {
+      width: min(calc(100% - 40px), var(--max));
+      margin: auto
+    }
 
     /* Header */
-    .site-header{
-      position:sticky;top:0;z-index:20;
-      background:rgba(8,9,11,.86);backdrop-filter:blur(14px);
-      border-bottom:1px solid var(--line);
+    .site-header {
+      position: sticky;
+      top: 0;
+      z-index: 20;
+      background: rgba(8, 9, 11, .86);
+      backdrop-filter: blur(14px);
+      border-bottom: 1px solid var(--line);
     }
-    .nav{min-height:58px;display:flex;align-items:center;justify-content:space-between;gap:20px}
-    .brand{font-weight:900;letter-spacing:-.02em;white-space:nowrap}
-    .brand small{display:block;color:var(--muted);font-size:.55rem;letter-spacing:.18em;font-weight:700}
-    .nav-links{display:flex;gap:18px;flex-wrap:wrap;justify-content:flex-end}
-    .nav-links a{font-size:.68rem;letter-spacing:.12em;color:var(--muted)}
-    .nav-links a:hover{color:var(--text)}
+
+    .nav {
+      min-height: 58px;
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      gap: 20px
+    }
+
+    .brand {
+      font-weight: 900;
+      letter-spacing: -.02em;
+      white-space: nowrap
+    }
+
+    .brand small {
+      display: block;
+      color: var(--muted);
+      font-size: .55rem;
+      letter-spacing: .18em;
+      font-weight: 700
+    }
+
+    .nav-links {
+      display: flex;
+      gap: 18px;
+      flex-wrap: wrap;
+      justify-content: flex-end
+    }
+
+    .nav-links a {
+      font-size: .68rem;
+      letter-spacing: .12em;
+      color: var(--muted)
+    }
+
+    .nav-links a:hover {
+      color: var(--text)
+    }
 
     /* Hero */
-    .hero{padding:28px 0 0}
-    .hero-banner{overflow:hidden;border:1px solid var(--line);background:var(--surface)}
-    .hero-banner img{width:100%;aspect-ratio:5/2;object-fit:cover;display:block}
-    .hero-title-wrap{padding:22px 0 0}
-    .hero-title{margin:0;font-size:clamp(2rem,5vw,4.2rem);line-height:.95;letter-spacing:-.05em;font-weight:900}
-    .package-label{padding:9px 12px;color:var(--muted);font-size:.65rem;letter-spacing:.18em;text-transform:uppercase}
+    .hero {
+      padding: 28px 0 0
+    }
 
-    section{padding:82px 0;border-bottom:1px solid var(--line)}
-    .section-title{margin:0 0 38px;font-size:.72rem;font-weight:800;letter-spacing:.25em}
-    .lead{font-size:clamp(1rem,2vw,1.18rem)}
-    .lead strong{font-weight:850}
-    .about-media{margin-top:36px}
-    .about-media h3{margin:0 0 12px;font-size:.68rem;letter-spacing:.2em;color:var(--muted)}
-    .about-media-frame{
-      display:flex;align-items:center;justify-content:center;
-      width:100%;aspect-ratio:16/9;overflow:hidden;
-      border:1px solid var(--line);background:var(--surface);
-      color:var(--muted);text-align:center;padding:24px;
+    .hero-banner {
+      overflow: hidden;
+      border: 1px solid var(--line);
+      background: var(--surface)
     }
-    .about-media-frame iframe,.about-media-frame video{
-      display:block;width:100%;height:100%;border:0;
+
+    .hero-banner img {
+      width: 100%;
+      aspect-ratio: 5/2;
+      object-fit: cover;
+      display: block
     }
-    .about-media-placeholder{font-size:.9rem}
-    .about-media-placeholder strong{display:block;margin-bottom:6px;color:var(--text);font-size:1rem}
-    .release{font-size:clamp(1.5rem,4vw,2.4rem);font-weight:800;letter-spacing:-.025em;margin:0 0 18px}
-    .release-date{color:var(--muted);font-size:.85rem;margin-top:18px}
-    .button{
-      display:inline-flex;align-items:center;justify-content:center;min-width:190px;
-      padding:14px 24px;border:1px solid var(--accent);background:var(--accent);
-      color:#08090b;font-weight:850;letter-spacing:.12em;transition:.2s;
+
+    .hero-title-wrap {
+      padding: 22px 0 0
     }
-    .button:hover{opacity:.82;transform:translateY(-1px)}
-    .button.secondary{background:transparent;color:var(--text);border-color:var(--line);min-width:auto}
-    .button-row{display:flex;gap:10px;flex-wrap:wrap}
+
+    .hero-title {
+      margin: 0;
+      font-size: clamp(2rem, 5vw, 4.2rem);
+      line-height: .95;
+      letter-spacing: -.05em;
+      font-weight: 900
+    }
+
+    .package-label {
+      padding: 9px 12px;
+      color: var(--muted);
+      font-size: .65rem;
+      letter-spacing: .18em;
+      text-transform: uppercase
+    }
+
+    section {
+      padding: 82px 0;
+      border-bottom: 1px solid var(--line)
+    }
+
+    .section-title {
+      margin: 0 0 38px;
+      font-size: .72rem;
+      font-weight: 800;
+      letter-spacing: .25em
+    }
+
+    .lead {
+      font-size: clamp(1rem, 2vw, 1.18rem)
+    }
+
+    .lead strong {
+      font-weight: 850
+    }
+
+    .about-media {
+      margin-top: 36px
+    }
+
+    .about-media h3 {
+      margin: 0 0 12px;
+      font-size: .68rem;
+      letter-spacing: .2em;
+      color: var(--muted)
+    }
+
+    .about-media-frame {
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      width: 100%;
+      aspect-ratio: 16/9;
+      overflow: hidden;
+      border: 1px solid var(--line);
+      background: var(--surface);
+      color: var(--muted);
+      text-align: center;
+      padding: 24px;
+    }
+
+    .about-media-frame iframe,
+    .about-media-frame video {
+      display: block;
+      width: 100%;
+      height: 100%;
+      border: 0;
+    }
+
+    .about-media-placeholder {
+      font-size: .9rem
+    }
+
+    .about-media-placeholder strong {
+      display: block;
+      margin-bottom: 6px;
+      color: var(--text);
+      font-size: 1rem
+    }
+
+    .release {
+      font-size: clamp(1.5rem, 4vw, 2.4rem);
+      font-weight: 800;
+      letter-spacing: -.025em;
+      margin: 0 0 18px
+    }
+
+    .release-date {
+      color: var(--muted);
+      font-size: .85rem;
+      margin-top: 18px
+    }
+
+    .button {
+      display: inline-flex;
+      align-items: center;
+      justify-content: center;
+      min-width: 190px;
+      padding: 14px 24px;
+      border: 1px solid var(--accent);
+      background: var(--accent);
+      color: #08090b;
+      font-weight: 850;
+      letter-spacing: .12em;
+      transition: .2s;
+    }
+
+    .button:hover {
+      opacity: .82;
+      transform: translateY(-1px)
+    }
+
+    .button.secondary {
+      background: transparent;
+      color: var(--text);
+      border-color: var(--line);
+      min-width: auto
+    }
+
+    .button-row {
+      display: flex;
+      gap: 10px;
+      flex-wrap: wrap
+    }
 
     /* Track overview */
-    .track-group{margin-top:54px}
-    .track-group:first-of-type{margin-top:0}
-    .track-group-title{display:flex;align-items:baseline;gap:14px;margin:0 0 15px;font-size:.92rem;letter-spacing:.16em}
-    .track-count{color:var(--muted);font-size:.68rem;letter-spacing:.08em;font-weight:400}
-    .tracks{border-top:1px solid var(--line)}
-    .track{display:grid;grid-template-columns:1fr auto;gap:24px;padding:16px 0;border-bottom:1px solid var(--line)}
-    .track-title{font-weight:650;font-size:1.02rem}
-    .track-artist{color:var(--muted);font-size:.82rem;text-align:right}
-    .note{margin-top:18px;color:var(--muted);font-size:.76rem}
+    .track-group {
+      margin-top: 54px
+    }
+
+    .track-group:first-of-type {
+      margin-top: 0
+    }
+
+    .track-group-title {
+      display: flex;
+      align-items: baseline;
+      gap: 14px;
+      margin: 0 0 15px;
+      font-size: .92rem;
+      letter-spacing: .16em
+    }
+
+    .track-count {
+      color: var(--muted);
+      font-size: .68rem;
+      letter-spacing: .08em;
+      font-weight: 400
+    }
+
+    .tracks {
+      border-top: 1px solid var(--line)
+    }
+
+    .track {
+      display: grid;
+      grid-template-columns: 1fr auto;
+      gap: 24px;
+      padding: 16px 0;
+      border-bottom: 1px solid var(--line)
+    }
+
+    .track-title {
+      font-weight: 650;
+      font-size: 1.02rem
+    }
+
+    .track-artist {
+      color: var(--muted);
+      font-size: .82rem;
+      text-align: right
+    }
+
+    .note {
+      margin-top: 18px;
+      color: var(--muted);
+      font-size: .76rem
+    }
 
     /* Music cards */
-    .music-grid{display:grid;gap:20px}
-    .music-card{
-      display:grid;grid-template-columns:minmax(190px,28%) 1fr;
-      background:var(--surface);border:1px solid var(--line);
+    .music-grid {
+      display: grid;
+      gap: 20px
     }
-    .jacket{aspect-ratio:1/1;background:var(--surface-2);overflow:hidden}
-    .jacket img{width:100%;height:100%;object-fit:cover}
-    .music-body{padding:25px 28px}
-    .music-number{color:var(--muted);font-size:.65rem;letter-spacing:.16em}
-    .music-title{margin:2px 0 0;font-size:clamp(1.25rem,3vw,2rem);line-height:1.25;letter-spacing:-.025em}
-    .music-artist{margin:6px 0 20px;color:var(--muted);font-size:1.05rem}
-    .music-genre{margin:-10px 0 18px;color:var(--muted);font-size:.9rem}
-    .music-genre span{color:var(--text)}
-    .credit-line{font-size:.9rem;color:var(--muted);margin-bottom:20px}
-    .music-comment{margin-top:22px;border-top:1px solid var(--line)}
-    .music-comment summary{display:flex;align-items:center;justify-content:space-between;gap:12px;padding:14px 2px;color:var(--muted);font-size:.68rem;letter-spacing:.18em;font-weight:800;cursor:pointer;list-style:none;user-select:none}
-    .music-comment summary::-webkit-details-marker{display:none}
-    .music-comment summary::after{content:"＋";font-size:1rem;line-height:1;transition:transform .2s}
-    .music-comment[open] summary::after{content:"－"}
-    .music-comment summary:hover{color:var(--text)}
-    .music-comment p{margin:0;padding:0 2px 18px;font-size:.88rem;line-height:1.85;color:var(--text);white-space:pre-line}
-    .rights-box{margin-top:24px;padding:16px 18px;background:var(--surface-2);border-left:2px solid #59616d;color:var(--muted);font-size:.76rem}
+
+    .music-card {
+      display: grid;
+      grid-template-columns: minmax(190px, 28%) 1fr;
+      background: var(--surface);
+      border: 1px solid var(--line);
+    }
+
+    .jacket {
+      aspect-ratio: 1/1;
+      background: var(--surface-2);
+      overflow: hidden
+    }
+
+    .jacket img {
+      width: 100%;
+      height: 100%;
+      object-fit: cover
+    }
+
+    .music-body {
+      padding: 25px 28px
+    }
+
+    .music-number {
+      color: var(--muted);
+      font-size: .65rem;
+      letter-spacing: .16em
+    }
+
+    .music-title {
+      margin: 2px 0 0;
+      font-size: clamp(1.25rem, 3vw, 2rem);
+      line-height: 1.25;
+      letter-spacing: -.025em
+    }
+
+    .music-artist {
+      margin: 6px 0 20px;
+      color: var(--muted);
+      font-size: 1.05rem
+    }
+
+    .music-genre {
+      margin: -10px 0 18px;
+      color: var(--muted);
+      font-size: .9rem
+    }
+
+    .music-genre span {
+      color: var(--text)
+    }
+
+    .credit-line {
+      font-size: .9rem;
+      color: var(--muted);
+      margin-bottom: 20px
+    }
+
+    .music-comment {
+      margin-top: 22px;
+      border-top: 1px solid var(--line)
+    }
+
+    .music-comment summary {
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      gap: 12px;
+      padding: 14px 2px;
+      color: var(--muted);
+      font-size: .68rem;
+      letter-spacing: .18em;
+      font-weight: 800;
+      cursor: pointer;
+      list-style: none;
+      user-select: none
+    }
+
+    .music-comment summary::-webkit-details-marker {
+      display: none
+    }
+
+    .music-comment summary::after {
+      content: "＋";
+      font-size: 1rem;
+      line-height: 1;
+      transition: transform .2s
+    }
+
+    .music-comment[open] summary::after {
+      content: "－"
+    }
+
+    .music-comment summary:hover {
+      color: var(--text)
+    }
+
+    .music-comment p {
+      margin: 0;
+      padding: 0 2px 18px;
+      font-size: .88rem;
+      line-height: 1.85;
+      color: var(--text);
+      white-space: pre-line
+    }
+
+    .rights-box {
+      margin-top: 24px;
+      padding: 16px 18px;
+      background: var(--surface-2);
+      border-left: 2px solid #59616d;
+      color: var(--muted);
+      font-size: .76rem
+    }
 
     /* Info / guideline */
-    .info-grid{display:grid;grid-template-columns:repeat(2,minmax(0,1fr));gap:16px}
-    .info-card{padding:22px;background:var(--surface);border:1px solid var(--line)}
-    .info-card h3{margin:0 0 8px;font-size:.66rem;letter-spacing:.18em;text-transform:uppercase;color:var(--muted)}
-    .info-card p{margin:0;font-weight:700}
-    .steps{margin:28px 0 0;padding-left:1.35em}
-    .guideline-block{margin-bottom:46px}
-    .guideline-block:last-child{margin-bottom:0}
-    .guideline-block h3{margin:0 0 14px;font-size:1.02rem}
-    .guideline-block p{margin:0 0 14px}
-    .guideline-block ul{margin:0;padding-left:1.3em}
+    .info-grid {
+      display: grid;
+      grid-template-columns: repeat(2, minmax(0, 1fr));
+      gap: 16px
+    }
+
+    .info-card {
+      padding: 22px;
+      background: var(--surface);
+      border: 1px solid var(--line)
+    }
+
+    .info-card h3 {
+      margin: 0 0 8px;
+      font-size: .66rem;
+      letter-spacing: .18em;
+      text-transform: uppercase;
+      color: var(--muted)
+    }
+
+    .info-card p {
+      margin: 0;
+      font-weight: 700
+    }
+
+    .steps {
+      margin: 28px 0 0;
+      padding-left: 1.35em
+    }
+
+    .guideline-block {
+      margin-bottom: 46px
+    }
+
+    .guideline-block:last-child {
+      margin-bottom: 0
+    }
+
+    .guideline-block h3 {
+      margin: 0 0 14px;
+      font-size: 1.02rem
+    }
+
+    .guideline-block p {
+      margin: 0 0 14px
+    }
+
+    .guideline-block ul {
+      margin: 0;
+      padding-left: 1.3em
+    }
 
     /* History / Staff */
-    .history{border-top:1px solid var(--line)}
-    .history-item{padding:22px 0;border-bottom:1px solid var(--line)}
-    .version{font-weight:850}
-    .date{margin-left:12px;color:var(--muted);font-size:.82rem}
-    .history-item ul{margin:7px 0 0;padding-left:1.3em}
-    .staff-grid{display:grid;grid-template-columns:repeat(2,minmax(0,1fr));gap:16px;margin-bottom:48px}
-    .staff-item{padding:19px;border:1px solid var(--line);background:var(--surface)}
-    .staff-role{display:block;margin-bottom:5px;color:var(--muted);font-size:.65rem;letter-spacing:.16em;text-transform:uppercase}
-    .x-link{display:inline-flex;margin-top:18px;padding:12px 18px;border:1px solid var(--line);background:var(--surface)}
+    .history {
+      border-top: 1px solid var(--line)
+    }
 
-    footer{padding:38px 0 52px;color:var(--muted);font-size:.74rem}
-    footer strong{display:block;margin-bottom:4px;color:var(--text);font-size:.9rem}
+    .history-item {
+      padding: 22px 0;
+      border-bottom: 1px solid var(--line)
+    }
 
-    @media(max-width:760px){
-      .container{width:min(calc(100% - 28px),var(--max))}
-      .nav{align-items:flex-start;padding:10px 0}
-      .nav-links{gap:10px}
-      section{padding:62px 0}
-      .music-card{grid-template-columns:1fr}
-      .jacket{aspect-ratio:1/1}
-      .jacket img{object-fit:contain}
-      .music-body{padding:21px}.music-title{font-size:1.55rem}.music-artist{font-size:1rem}
-      .music-genre{font-size:.88rem}
-      .info-grid,.staff-grid{grid-template-columns:1fr}
-      .track{grid-template-columns:1fr;gap:2px}
-      .track-artist{text-align:left}
-      .date{display:block;margin:2px 0 0}
+    .version {
+      font-weight: 850
+    }
+
+    .date {
+      margin-left: 12px;
+      color: var(--muted);
+      font-size: .82rem
+    }
+
+    .history-item ul {
+      margin: 7px 0 0;
+      padding-left: 1.3em
+    }
+
+    .staff-grid {
+      display: grid;
+      grid-template-columns: repeat(2, minmax(0, 1fr));
+      gap: 16px;
+      margin-bottom: 48px
+    }
+
+    .staff-item {
+      padding: 19px;
+      border: 1px solid var(--line);
+      background: var(--surface)
+    }
+
+    .staff-role {
+      display: block;
+      margin-bottom: 5px;
+      color: var(--muted);
+      font-size: .65rem;
+      letter-spacing: .16em;
+      text-transform: uppercase
+    }
+
+    .x-link {
+      display: inline-flex;
+      margin-top: 18px;
+      padding: 12px 18px;
+      border: 1px solid var(--line);
+      background: var(--surface)
+    }
+
+    footer {
+      padding: 38px 0 52px;
+      color: var(--muted);
+      font-size: .74rem
+    }
+
+    footer strong {
+      display: block;
+      margin-bottom: 4px;
+      color: var(--text);
+      font-size: .9rem
+    }
+
+    @media(max-width:760px) {
+      .container {
+        width: min(calc(100% - 28px), var(--max))
+      }
+
+      .nav {
+        align-items: flex-start;
+        padding: 10px 0
+      }
+
+      .nav-links {
+        gap: 10px
+      }
+
+      section {
+        padding: 62px 0
+      }
+
+      .music-card {
+        grid-template-columns: 1fr
+      }
+
+      .jacket {
+        aspect-ratio: 1/1
+      }
+
+      .jacket img {
+        object-fit: contain
+      }
+
+      .music-body {
+        padding: 21px
+      }
+
+      .music-title {
+        font-size: 1.55rem
+      }
+
+      .music-artist {
+        font-size: 1rem
+      }
+
+      .music-genre {
+        font-size: .88rem
+      }
+
+      .info-grid,
+      .staff-grid {
+        grid-template-columns: 1fr
+      }
+
+      .track {
+        grid-template-columns: 1fr;
+        gap: 2px
+      }
+
+      .track-artist {
+        text-align: left
+      }
+
+      .date {
+        display: block;
+        margin: 2px 0 0
+      }
     }
   </style>
 </head>
@@ -159,7 +620,8 @@
 <body>
   <header class="site-header">
     <div class="container nav">
-      <a class="brand" href="https://over-flontier.netlify.app/#top">Over:Fl∅ntier<small>K-SHOOT MANIA PACKAGE</small></a>
+      <a class="brand" href="https://over-flontier.netlify.app/#top">Over:Fl∅ntier<small>K-SHOOT MANIA
+          PACKAGE</small></a>
       <nav class="nav-links" aria-label="ページ内ナビゲーション">
         <a href="https://over-flontier.netlify.app/#download">DOWNLOAD</a>
         <a href="https://over-flontier.netlify.app/#about">ABOUT</a>
@@ -174,7 +636,7 @@
   <header class="hero">
     <div class="container">
       <div class="hero-banner">
-        <img src="./OverFlontier_files/banner.png" alt="Over:Fl∅ntier main visual">
+        <img src="./images/banner.png" alt="Over:Fl∅ntier main visual">
       </div>
       <div class="hero-title-wrap">
         <h1 class="hero-title">Over:Fl∅ntier</h1>
@@ -189,7 +651,8 @@
         <p class="release">Over:Fl∅ntier v1.0.3</p>
         <div class="button-row">
           <!-- Google Drive URLに差し替え -->
-          <a class="button" href="https://drive.google.com/file/d/18D4_fyJCjFX0ML358buZua_uqlrYHr8B/view?usp=drive_link" target="_blank" rel="noopener">DOWNLOAD</a>
+          <a class="button" href="https://drive.google.com/file/d/18D4_fyJCjFX0ML358buZua_uqlrYHr8B/view?usp=drive_link"
+            target="_blank" rel="noopener">DOWNLOAD</a>
         </div>
         <p class="release-date">Release : 2026.11.02</p>
       </div>
@@ -215,9 +678,9 @@
           -->
           <div class="about-media-frame">
             <div class="about-media-placeholder">
-          	<video controls="" playsinline="" preload="metadata">
-             	 <source src="videos/over_flontier_xfade.mp4" type="video/mp4">
-            	</video>
+              <video controls="" playsinline="" preload="metadata">
+                <source src="./videos/xfade.mp4" type="video/mp4">
+              </video>
             </div>
           </div>
         </div>
@@ -231,269 +694,313 @@
 
         <div class="music-grid">
           <article class="music-card">
-            <div class="jacket"><img src="./OverFlontier_files/07.png" alt="HeLLo WorLD jacket" onerror="this.src='images/jacket-placeholder.svg'"></div>
+            <div class="jacket"><img src="./images/01_hello_world.png" alt="HeLLo WorLD jacket"
+                onerror="this.src='images/jacket-placeholder.svg'"></div>
             <div class="music-body">
-              <span class="music-number">01 / ORIGINAL</span><h3 class="music-title">"HeLLo WorLD"</h3><p class="music-artist">lamaGkh</p>
+              <span class="music-number">01 / ORIGINAL</span>
+              <h3 class="music-title">"HeLLo WorLD"</h3>
+              <p class="music-artist">lamaGkh</p>
               <p class="music-genre">GENRE : <span>"HeLLo WorLD"</span></p>
               <div class="credit-line">JACKET : Frill-buriburi-obake</div>
               <details class="music-comment">
                 <summary>COMMENT</summary>
-                <p>lamaGkh 
-24平均律を用いた微分音の使用、今まで作ったことのないテイストの楽曲に挑戦しました。
-地球外生命体のデータが地球人の手にわたり、恐る恐る開いたところ流れてきた音楽というテーマです。
-今の人類にとって未知のモノ、異物であるという印象を植え付ける曲に仕上げたつもりです。
+                <p>lamaGkh
+                  24平均律を用いた微分音の使用、今まで作ったことのないテイストの楽曲に挑戦しました。
+                  地球外生命体のデータが地球人の手にわたり、恐る恐る開いたところ流れてきた音楽というテーマです。
+                  今の人類にとって未知のモノ、異物であるという印象を植え付ける曲に仕上げたつもりです。
 
-Frill-buriburi-obake
-初めてメカキャラクターデザインをしました。少し悩みましたが、なんだかんだ形になってうれしく思っています。
-楽曲の不穏さ、不気味さを表現するために、顔の中心パーツをむき出しにしてみたりして、なんだか話が簡単に通じなさそうな形に仕上がったかな、と思います。
-お気に入りポイントは、髪の毛に見立てた切れたコードです。
-実はこの絵の中に作曲者と私がいます。すぐに見つけられると思いますが探してみてください。一気にこのイラストの印象が変わります。</p>
+                  Frill-buriburi-obake
+                  初めてメカキャラクターデザインをしました。少し悩みましたが、なんだかんだ形になってうれしく思っています。
+                  楽曲の不穏さ、不気味さを表現するために、顔の中心パーツをむき出しにしてみたりして、なんだか話が簡単に通じなさそうな形に仕上がったかな、と思います。
+                  お気に入りポイントは、髪の毛に見立てた切れたコードです。
+                  実はこの絵の中に作曲者と私がいます。すぐに見つけられると思いますが探してみてください。一気にこのイラストの印象が変わります。</p>
               </details>
-</div>
+            </div>
           </article>
           <article class="music-card">
-            <div class="jacket"><img src="./OverFlontier_files/01.png" alt="blanc.exe jacket" onerror="this.src='images/jacket-placeholder.svg'"></div>
+            <div class="jacket"><img src="./images/02_blanc_exe.png" alt="blanc.exe jacket"
+                onerror="this.src='images/jacket-placeholder.svg'"></div>
             <div class="music-body">
-              <span class="music-number">02 / ORIGINAL</span><h3 class="music-title">blanc.exe</h3><p class="music-artist">T2</p>
+              <span class="music-number">02 / ORIGINAL</span>
+              <h3 class="music-title">blanc.exe</h3>
+              <p class="music-artist">T2</p>
               <p class="music-genre">GENRE : <span>Colour Renaissance</span></p>
               <div class="credit-line">JACKET : Caws</div>
               <details class="music-comment">
                 <summary>COMMENT</summary>
-                <p>T2 
-Colour bassのようなドロップをBPM200越えのハードルネッサンスに落とし込むことが難しかったのですが、うまく音ゲー曲として楽しめるようなものになったと思います。
-その他に、ピアノのフレーズなどにもこだわって作成しましたので、楽しんでいただければ幸いです。
+                <p>T2
+                  Colour bassのようなドロップをBPM200越えのハードルネッサンスに落とし込むことが難しかったのですが、うまく音ゲー曲として楽しめるようなものになったと思います。
+                  その他に、ピアノのフレーズなどにもこだわって作成しましたので、楽しんでいただければ幸いです。
 
-Caws
-SFES2022ぶりのジャケット制作です！気が付けばもう4年ジャケット描いてなかった…
-自分はかわいいものを描くのが好きなのですが、今回はあえてかっこいい曲を担当させてもらい、かっこかわいいジャケットに挑戦してみました！
-同曲の赤譜面も勝手に担当させてもらったのでぜひやってみてくださいね。
-</p>
+                  Caws
+                  SFES2022ぶりのジャケット制作です！気が付けばもう4年ジャケット描いてなかった…
+                  自分はかわいいものを描くのが好きなのですが、今回はあえてかっこいい曲を担当させてもらい、かっこかわいいジャケットに挑戦してみました！
+                  同曲の赤譜面も勝手に担当させてもらったのでぜひやってみてくださいね。
+                </p>
               </details>
-</div>
+            </div>
           </article>
           <article class="music-card">
-            <div class="jacket"><img src="./OverFlontier_files/02.png" alt="Dominant Presence jacket" onerror="this.src='images/jacket-placeholder.svg'"></div>
+            <div class="jacket"><img src="./images/03_dominant_presence.png" alt="Dominant Presence jacket"
+                onerror="this.src='images/jacket-placeholder.svg'"></div>
             <div class="music-body">
-              <span class="music-number">03 / ORIGINAL</span><h3 class="music-title">Dominant Presence</h3><p class="music-artist">龍崎カラム</p>
+              <span class="music-number">03 / ORIGINAL</span>
+              <h3 class="music-title">Dominant Presence</h3>
+              <p class="music-artist">龍崎カラム</p>
               <p class="music-genre">GENRE : <span>EPIC BATTLE TRACK</span></p>
               <div class="credit-line">JACKET : Leruna</div>
               <details class="music-comment">
                 <summary>COMMENT</summary>
                 <p>龍崎カラム
-なんだかんだで2.5年ぶりくらいにオリ曲を書きました。手癖で曲を書くとなんか誰かと戦ってそうな曲になりがち。
+                  なんだかんだで2.5年ぶりくらいにオリ曲を書きました。手癖で曲を書くとなんか誰かと戦ってそうな曲になりがち。
 
-Leruna
-作曲者からの指定がある！嬉しい～！(自分が「After」やることあるんだぁ…)
-普段「風が吹いてます～ｗ」で誤魔化せるフリフリ布類に甘えてる人間ゆえ金属装飾が苦手ですががんばりました。こんな険しい顔の女もそうそう描かないですし。
-本ジャケットの女の子は実力解禁イベントの道中の曲くらいの壮大な小ボスのようにしたつもりです。それくらいが限界とも言います。ムキムキ音ゲーマーのみなさんが制御しなきゃいけない中速逆に難しいって言ってるのを筋力ない人間が全力でちょうどいいみたいな感じです。</p>
+                  Leruna
+                  作曲者からの指定がある！嬉しい～！(自分が「After」やることあるんだぁ…)
+                  普段「風が吹いてます～ｗ」で誤魔化せるフリフリ布類に甘えてる人間ゆえ金属装飾が苦手ですががんばりました。こんな険しい顔の女もそうそう描かないですし。
+                  本ジャケットの女の子は実力解禁イベントの道中の曲くらいの壮大な小ボスのようにしたつもりです。それくらいが限界とも言います。ムキムキ音ゲーマーのみなさんが制御しなきゃいけない中速逆に難しいって言ってるのを筋力ない人間が全力でちょうどいいみたいな感じです。
+                </p>
               </details>
-</div>
+            </div>
           </article>
           <article class="music-card">
-            <div class="jacket"><img src="./OverFlontier_files/jacket-placeholder.svg" alt="Filia -無色透明- jacket" onerror="this.src='images/jacket-placeholder.svg'"></div>
+            <div class="jacket"><img src="./images/04_filia_mushokutoumei.png" alt="Filia -無色透明- jacket"
+                onerror="this.src='images/jacket-placeholder.svg'"></div>
             <div class="music-body">
-              <span class="music-number">04 / ORIGINAL</span><h3 class="music-title">Filia -無色透明-</h3><p class="music-artist">RyuL</p>
+              <span class="music-number">04 / ORIGINAL</span>
+              <h3 class="music-title">Filia -無色透明-</h3>
+              <p class="music-artist">RyuL</p>
               <p class="music-genre">GENRE : <span>DISTANT MEMORY</span></p>
               <div class="credit-line">JACKET : UMR</div>
               <details class="music-comment">
                 <summary>COMMENT</summary>
                 <p>RyuL
-今回は龍と子供の、出会いと別れ、そして再会の曲となっています。
-長い年月が過ぎ、数多の世界を超えても、お互いを忘れず、最後には感動の再開を果たす、そんなストーリーから曲を作りました。
-いつも曲を作るときはストーリーがあるのですが、同じ世界線で考え始めてから7年経ってるので、どんどん複雑になってきてます…
-ちなみに、とんえぼパッケージで龍の曲を合計3曲出しているのですが、頭文字がA～Gまで揃うように作ってました。
-(欠けている曲は機会があれば…)
+                  今回は龍と子供の、出会いと別れ、そして再会の曲となっています。
+                  長い年月が過ぎ、数多の世界を超えても、お互いを忘れず、最後には感動の再開を果たす、そんなストーリーから曲を作りました。
+                  いつも曲を作るときはストーリーがあるのですが、同じ世界線で考え始めてから7年経ってるので、どんどん複雑になってきてます…
+                  ちなみに、とんえぼパッケージで龍の曲を合計3曲出しているのですが、頭文字がA～Gまで揃うように作ってました。
+                  (欠けている曲は機会があれば…)
 
-UMR
-この楽曲を聴いて自分がまず最初に想起したのは、離れ離れになった龍と少年の、運命の再会のシーンです。
-楽曲イントロのハミングっぽいメロディを「少年の歌」になぞらえ、ひとり龍を想い歌い続ける少年の姿をイメージしました。
-そしてラスサビ開始と同時に唸る笛のような音が「龍の咆哮」に聴こえたので、これに気付いた少年が振り返る、その視線の先には…という瞬間を描いたジャケットになります。
-楽曲が速いので疾走感も意識しつつ、ケルトな雰囲気も出したいから恰好は冒険者かな…など、諸々ごった煮になってしまった気もしますが、無事（？）完成してくれてよかったです。
+                  UMR
+                  この楽曲を聴いて自分がまず最初に想起したのは、離れ離れになった龍と少年の、運命の再会のシーンです。
+                  楽曲イントロのハミングっぽいメロディを「少年の歌」になぞらえ、ひとり龍を想い歌い続ける少年の姿をイメージしました。
+                  そしてラスサビ開始と同時に唸る笛のような音が「龍の咆哮」に聴こえたので、これに気付いた少年が振り返る、その視線の先には…という瞬間を描いたジャケットになります。
+                  楽曲が速いので疾走感も意識しつつ、ケルトな雰囲気も出したいから恰好は冒険者かな…など、諸々ごった煮になってしまった気もしますが、無事（？）完成してくれてよかったです。
 
-この度はお声かけいただきありがとうございました！
-</p>
+                  この度はお声かけいただきありがとうございました！
+                </p>
               </details>
-</div>
+            </div>
           </article>
           <article class="music-card">
-            <div class="jacket"><img src="./OverFlontier_files/jacket-placeholder.svg" alt="Frozen Coleus jacket" onerror="this.src='images/jacket-placeholder.svg'"></div>
+            <div class="jacket"><img src="./images/05_frozen_coleus.png" alt="Frozen Coleus jacket"
+                onerror="this.src='images/jacket-placeholder.svg'"></div>
             <div class="music-body">
-              <span class="music-number">05 / ORIGINAL</span><h3 class="music-title">Frozen Coleus</h3><p class="music-artist">boreas.log</p>
+              <span class="music-number">05 / ORIGINAL</span>
+              <h3 class="music-title">Frozen Coleus</h3>
+              <p class="music-artist">boreas.log</p>
               <p class="music-genre">GENRE : <span>FROST STEP</span></p>
               <div class="credit-line">JACKET : -</div>
               <details class="music-comment">
                 <summary>COMMENT</summary>
-                <p>boreas.log 
-「凍てついた陽の下　貴方は褪せた葉を伸ばし続ける」
-「永遠の中に在ろうとも　運命はコリウスの花を摘んでゆくのだ」</p>
+                <p>boreas.log
+                  「凍てついた陽の下　貴方は褪せた葉を伸ばし続ける」
+                  「永遠の中に在ろうとも　運命はコリウスの花を摘んでゆくのだ」</p>
               </details>
-</div>
+            </div>
           </article>
           <article class="music-card">
-            <div class="jacket"><img src="./OverFlontier_files/jacket-placeholder.svg" alt="grab my K-awaii future jacket" onerror="this.src='images/jacket-placeholder.svg'"></div>
+            <div class="jacket"><img src="./images/06_grab_my_kawaii_future.png"
+                alt="grab my K-awaii future jacket" onerror="this.src='images/jacket-placeholder.svg'"></div>
             <div class="music-body">
-              <span class="music-number">06 / ORIGINAL</span><h3 class="music-title">grab my K-awaii future</h3><p class="music-artist">空澄わやぬお</p>
+              <span class="music-number">06 / ORIGINAL</span>
+              <h3 class="music-title">grab my K-awaii future</h3>
+              <p class="music-artist">空澄わやぬお</p>
               <p class="music-genre">GENRE : <span>K-awaii Futurecore</span></p>
               <div class="credit-line">JACKET : MAYU</div>
               <details class="music-comment">
                 <summary>COMMENT</summary>
                 <p>空澄わやぬお
-この楽曲を作った当時はハネた楽曲しか作っていなかったため、久しぶりに4つ打ちの楽曲に挑戦しようと思い制作しました。
-音ゲー楽曲らしさを残しつつ、可能な限り可愛さを前面に押し出して作りました。
-ところで、私は合計3曲制作しました。見つけていただけたら幸いです。
+                  この楽曲を作った当時はハネた楽曲しか作っていなかったため、久しぶりに4つ打ちの楽曲に挑戦しようと思い制作しました。
+                  音ゲー楽曲らしさを残しつつ、可能な限り可愛さを前面に押し出して作りました。
+                  ところで、私は合計3曲制作しました。見つけていただけたら幸いです。
 
-MAYU
-ジャケットが"明るさと可愛さを前面に押し出してください！"とのことだったのでモチーフや色など自分の思う"可愛い"をとにかくぶつけました。
-｢女の子が絵という枠から身を乗り出してこちらを見ている…｣的なイメージで描いてたりします。
-今回、普段あまり使わない色使いをしています。配色に違和感はないのか、など色々と考えた末に今回のイラストに落ち着きました。
-ちなみに女の子の名前は決めてないので好きに呼んでください。猫耳なのは私の趣味です。にゃー。
-</p>
+                  MAYU
+                  ジャケットが"明るさと可愛さを前面に押し出してください！"とのことだったのでモチーフや色など自分の思う"可愛い"をとにかくぶつけました。
+                  ｢女の子が絵という枠から身を乗り出してこちらを見ている…｣的なイメージで描いてたりします。
+                  今回、普段あまり使わない色使いをしています。配色に違和感はないのか、など色々と考えた末に今回のイラストに落ち着きました。
+                  ちなみに女の子の名前は決めてないので好きに呼んでください。猫耳なのは私の趣味です。にゃー。
+                </p>
               </details>
-</div>
+            </div>
           </article>
           <article class="music-card">
-            <div class="jacket"><img src="./OverFlontier_files/08.png" alt="Like the Blue jacket" onerror="this.src='images/jacket-placeholder.svg'"></div>
+            <div class="jacket"><img src="./images/07_like_the_blue.png" alt="Like the Blue jacket"
+                onerror="this.src='images/jacket-placeholder.svg'"></div>
             <div class="music-body">
-              <span class="music-number">07 / ORIGINAL</span><h3 class="music-title">Like the Blue</h3><p class="music-artist">Kosuke Okamoto</p>
+              <span class="music-number">07 / ORIGINAL</span>
+              <h3 class="music-title">Like the Blue</h3>
+              <p class="music-artist">Kosuke Okamoto</p>
               <p class="music-genre">GENRE : <span>RESPECTS DANCE SPEED</span></p>
               <div class="credit-line">JACKET : いもねぎ</div>
               <details class="music-comment">
                 <summary>COMMENT</summary>
                 <p>Kosuke Okamoto
-高校生だった頃の話です。鍵盤が7つついているアーケードゲームをやっていたら、とある曲が聞こえてきました。最初の1秒で全身に電流が走ったような衝撃を受けました。
-あんな体験は後にも先にもできていません。あの曲と出会っていなかったら、出会っていたとしても筐体以外での出会いだったら今DTMを趣味としているかどうかも怪しい、それほど重要な体験でした。
-その曲と体験への最大限の敬意を払った曲です。
+                  高校生だった頃の話です。鍵盤が7つついているアーケードゲームをやっていたら、とある曲が聞こえてきました。最初の1秒で全身に電流が走ったような衝撃を受けました。
+                  あんな体験は後にも先にもできていません。あの曲と出会っていなかったら、出会っていたとしても筐体以外での出会いだったら今DTMを趣味としているかどうかも怪しい、それほど重要な体験でした。
+                  その曲と体験への最大限の敬意を払った曲です。
 
-いもねぎ
-「挑戦」がひとつのテーマとお聞きしたので、とても少ない色数にチャレンジしてシンプルに描きあげてみました。
-</p>
+                  いもねぎ
+                  「挑戦」がひとつのテーマとお聞きしたので、とても少ない色数にチャレンジしてシンプルに描きあげてみました。
+                </p>
               </details>
-</div>
+            </div>
           </article>
           <article class="music-card">
-            <div class="jacket"><img src="./OverFlontier_files/09.png" alt="忍者屋敷 jacket" onerror="this.src='images/jacket-placeholder.svg'"></div>
+            <div class="jacket"><img src="./images/08_ninjayashiki.png" alt="忍者屋敷 jacket"
+                onerror="this.src='images/jacket-placeholder.svg'"></div>
             <div class="music-body">
-              <span class="music-number">08 / ORIGINAL</span><h3 class="music-title">忍者屋敷</h3><p class="music-artist">Kosuke Okamoto</p>
+              <span class="music-number">08 / ORIGINAL</span>
+              <h3 class="music-title">忍者屋敷</h3>
+              <p class="music-artist">Kosuke Okamoto</p>
               <p class="music-genre">GENRE : <span>BUCHIAGE TRANCE</span></p>
               <div class="credit-line">JACKET : Frill-buriburi-obake</div>
               <details class="music-comment">
                 <summary>COMMENT</summary>
                 <p>Kosuke Okamoto
-「一番音ゲーをやっていた2010年あたりのEXTRA STAGE専用曲にありそう」をコンセプトに作りました。
-K-Shoot MANIAのパッケージということで、エフェクトを入れやすいようできるだけシンプルなアレンジにしています。
+                  「一番音ゲーをやっていた2010年あたりのEXTRA STAGE専用曲にありそう」をコンセプトに作りました。
+                  K-Shoot MANIAのパッケージということで、エフェクトを入れやすいようできるだけシンプルなアレンジにしています。
 
-Frill-buriburi-obake
-「女性キャラ」「緑色」の条件でキャラクターデザインをしたうえで描かせていただきました。
-この子の名前募集中です。
+                  Frill-buriburi-obake
+                  「女性キャラ」「緑色」の条件でキャラクターデザインをしたうえで描かせていただきました。
+                  この子の名前募集中です。
 
-</p>
+                </p>
               </details>
-</div>
+            </div>
           </article>
           <article class="music-card">
-            <div class="jacket"><img src="./OverFlontier_files/jacket-placeholder.svg" alt="Observation jacket" onerror="this.src='images/jacket-placeholder.svg'"></div>
+            <div class="jacket"><img src="./images/09_observation.png" alt="Observation jacket"
+                onerror="this.src='images/jacket-placeholder.svg'"></div>
             <div class="music-body">
-              <span class="music-number">09 / ORIGINAL</span><h3 class="music-title">Observation</h3><p class="music-artist">RyuL</p>
+              <span class="music-number">09 / ORIGINAL</span>
+              <h3 class="music-title">Observation</h3>
+              <p class="music-artist">RyuL</p>
               <p class="music-genre">GENRE : <span>FUNCTION</span></p>
               <div class="credit-line">JACKET : Chrocatz</div>
               <details class="music-comment">
                 <summary>COMMENT</summary>
                 <p>RyuL
-今回は「世界の観測者」との戦闘をイメージして曲を作りました。
-上位存在に抗う中で「それ」の本質が見えてくるものの、より強い力で封じられてなすすべが無い…という絶対感や絶望感を前面に押し出しました。
-メロディよりもリズムの主張を強くする意識で作りましたが、ところどころに自我が出てますね…
+                  今回は「世界の観測者」との戦闘をイメージして曲を作りました。
+                  上位存在に抗う中で「それ」の本質が見えてくるものの、より強い力で封じられてなすすべが無い…という絶対感や絶望感を前面に押し出しました。
+                  メロディよりもリズムの主張を強くする意識で作りましたが、ところどころに自我が出てますね…
 
-Chrocatz
-全視る</p>
+                  Chrocatz
+                  全視る</p>
               </details>
-</div>
+            </div>
           </article>
           <article class="music-card">
-            <div class="jacket"><img src="./OverFlontier_files/11.png" alt="Pure Watervliet jacket" onerror="this.src='images/jacket-placeholder.svg'"></div>
+            <div class="jacket"><img src="./images/10_pure_watervliet.png" alt="Pure Watervliet jacket"
+                onerror="this.src='images/jacket-placeholder.svg'"></div>
             <div class="music-body">
-              <span class="music-number">10 / ORIGINAL</span><h3 class="music-title">Pure Watervliet</h3><p class="music-artist">C. Arpus</p>
+              <span class="music-number">10 / ORIGINAL</span>
+              <h3 class="music-title">Pure Watervliet</h3>
+              <p class="music-artist">C. Arpus</p>
               <p class="music-genre">GENRE : <span>Riverside Sunday</span></p>
               <div class="credit-line">JACKET : 天紅</div>
               <details class="music-comment">
                 <summary>COMMENT</summary>
                 <p>C. Arpus
-始めて作曲に挑戦しました。シンセ叩いて音づくりするの楽しいですね。
-レンガ造りの川沿いの町をイメージした楽曲です。
-アートコアを目指したつもりでしたが自分の好きな音に流れて行っちゃった。やったー。
+                  始めて作曲に挑戦しました。シンセ叩いて音づくりするの楽しいですね。
+                  レンガ造りの川沿いの町をイメージした楽曲です。
+                  アートコアを目指したつもりでしたが自分の好きな音に流れて行っちゃった。やったー。
 
-天紅
-こんにちは！
-ジャケット担当の天紅と申します。
-自然に溶け込ませたくて曲名を水面字にして遊んでみました。
-雰囲気づくりにこだわった、このジャケットが曲のイメージに役立てたら嬉しいです！</p>
+                  天紅
+                  こんにちは！
+                  ジャケット担当の天紅と申します。
+                  自然に溶け込ませたくて曲名を水面字にして遊んでみました。
+                  雰囲気づくりにこだわった、このジャケットが曲のイメージに役立てたら嬉しいです！</p>
               </details>
-</div>
+            </div>
           </article>
           <article class="music-card">
-            <div class="jacket"><img src="./OverFlontier_files/12.png" alt="recollection jacket" onerror="this.src='images/jacket-placeholder.svg'"></div>
+            <div class="jacket"><img src="./images/11_recollection.png" alt="recollection jacket"
+                onerror="this.src='images/jacket-placeholder.svg'"></div>
             <div class="music-body">
-              <span class="music-number">11 / ORIGINAL</span><h3 class="music-title">recollection</h3><p class="music-artist">sendaijiro</p>
+              <span class="music-number">11 / ORIGINAL</span>
+              <h3 class="music-title">recollection</h3>
+              <p class="music-artist">sendaijiro</p>
               <p class="music-genre">GENRE : <span>AMBIENT JUNGLE</span></p>
               <div class="credit-line">JACKET : Leruna</div>
               <details class="music-comment">
                 <summary>COMMENT</summary>
-              <p>sendaijiro
-00(~10)年代を振り返りながら書いた曲です。
-編曲部分は今できる全てをつぎ込みました。
-郷愁やなつかしさを覚える人がいたら嬉しいです。
+                <p>sendaijiro
+                  00(~10)年代を振り返りながら書いた曲です。
+                  編曲部分は今できる全てをつぎ込みました。
+                  郷愁やなつかしさを覚える人がいたら嬉しいです。
 
-Leruna
-何か新しいことをしなくてはということで、普段使っているカラーパレットを封印しました。
-趣味で撮り貯めている夕暮れ空の写真を1枚選んでそこからスポイトで吸った色だけで描いています。写真内に白と黒と肌塗るのに使えそうな色があって良かった～！
-カラーパレットとして使った写真は背景にもしています。よく見えるように思い切って差分1枚はほぼ背景だけにしました。よ～く見ると下の方に木の頭が見えるかも。
-差分は「薄れゆく」イメージで作ってます。「逆じゃない？」って思います？でもどうせみなさん一番上の難易度やってから順番に下げていく形で下埋めてるんでしょ？逆じゃないんですねえ。
-              </p></details>
-</div>
+                  Leruna
+                  何か新しいことをしなくてはということで、普段使っているカラーパレットを封印しました。
+                  趣味で撮り貯めている夕暮れ空の写真を1枚選んでそこからスポイトで吸った色だけで描いています。写真内に白と黒と肌塗るのに使えそうな色があって良かった～！
+                  カラーパレットとして使った写真は背景にもしています。よく見えるように思い切って差分1枚はほぼ背景だけにしました。よ～く見ると下の方に木の頭が見えるかも。
+                  差分は「薄れゆく」イメージで作ってます。「逆じゃない？」って思います？でもどうせみなさん一番上の難易度やってから順番に下げていく形で下埋めてるんでしょ？逆じゃないんですねえ。
+                </p>
+              </details>
+            </div>
           </article>
           <article class="music-card">
-            <div class="jacket"><img src="./OverFlontier_files/jacket-placeholder.svg" alt="Fierté et croyance jacket" onerror="this.src='images/jacket-placeholder.svg'"></div>
+            <div class="jacket"><img src="./images/12_fierte_et_croyance.png" alt="Fierté et croyance jacket"
+                onerror="this.src='images/jacket-placeholder.svg'"></div>
             <div class="music-body">
-              <span class="music-number">12 / ORIGINAL</span><h3 class="music-title">Fierté et croyance</h3><p class="music-artist">Asymmetry Surge</p>
+              <span class="music-number">12 / ORIGINAL</span>
+              <h3 class="music-title">Fierté et croyance</h3>
+              <p class="music-artist">Asymmetry Surge</p>
               <p class="music-genre">GENRE : <span>EMO Trance</span></p>
               <div class="credit-line">JACKET : UMR</div>
               <details class="music-comment">
                 <summary>COMMENT</summary>
                 <p>Asymmetry Surge
-本楽曲は2人での合作となっています。
-トランスと一口に言っても様々なジャンルがあり、また方向性も多岐にわたります。
-今回は2人の好きな"エモ"に舵を切ることにしました。
-トランスは歴史が長いクラブミュージックで、今もなお多彩な形で生まれ続けています。
-この曲をきっかけに、少しでもトランスに触れてくださる方がいましたら幸いです。
+                  本楽曲は2人での合作となっています。
+                  トランスと一口に言っても様々なジャンルがあり、また方向性も多岐にわたります。
+                  今回は2人の好きな"エモ"に舵を切ることにしました。
+                  トランスは歴史が長いクラブミュージックで、今もなお多彩な形で生まれ続けています。
+                  この曲をきっかけに、少しでもトランスに触れてくださる方がいましたら幸いです。
 
-UMR
-この楽曲はジャケットのイメージがなかなか出てこなくて難産でした…
-トランスは好きでよく聴きますし、美しさと少しの黒さ、儚さを孕んだ激良曲なのですが、これを表現する方法が分からなくて。
-個人的には無機物的な表現がしたいと思ったのですが、それをお絵かきソフトで描く技量が無く、どうしたものかと色々悩みました。
+                  UMR
+                  この楽曲はジャケットのイメージがなかなか出てこなくて難産でした…
+                  トランスは好きでよく聴きますし、美しさと少しの黒さ、儚さを孕んだ激良曲なのですが、これを表現する方法が分からなくて。
+                  個人的には無機物的な表現がしたいと思ったのですが、それをお絵かきソフトで描く技量が無く、どうしたものかと色々悩みました。
 
-女の子しか描けない自分なのでそこは中心に据えつつ、kawaii系よりも美しい系だろうということで、欲しかった無機物要素の中に天使を座らせる構図に落ち着きました。
-自分が昔から大好きな楽曲を参考にしたりと模索したのですが、なんだか色々と違いますね笑
-でも最終的には、描きたかった情景ぽくなったかな、と思います！
+                  女の子しか描けない自分なのでそこは中心に据えつつ、kawaii系よりも美しい系だろうということで、欲しかった無機物要素の中に天使を座らせる構図に落ち着きました。
+                  自分が昔から大好きな楽曲を参考にしたりと模索したのですが、なんだか色々と違いますね笑
+                  でも最終的には、描きたかった情景ぽくなったかな、と思います！
 
-この度はお声かけいただきありがとうございました！</p>
+                  この度はお声かけいただきありがとうございました！</p>
               </details>
-</div>
+            </div>
           </article>
         </div>
 
-   
-    </div></section>
+
+      </div>
+    </section>
 
     <section id="tracks">
       <div class="container">
         <h2 class="section-title">MUSIC / VARIETY</h2>
         <div class="track-group">
           <div class="tracks">
-            <div class="track"><span class="track-title">Can You Feel It</span><span class="track-artist">siqlo</span></div>
-            <div class="track"><span class="track-title">花嵐、空に溶けて</span><span class="track-artist">DJ Raisei vs. Setca. feat. 咲良ゆの</span></div>
-            <div class="track"><span class="track-title">HEXPERUS</span><span class="track-artist">qfeileadh&amp;のあ</span></div>
+            <div class="track"><span class="track-title">Can You Feel It</span><span class="track-artist">siqlo</span>
+            </div>
+            <div class="track"><span class="track-title">花嵐、空に溶けて</span><span class="track-artist">DJ Raisei vs. Setca.
+                feat. 咲良ゆの</span></div>
+            <div class="track"><span class="track-title">HEXPERUS</span><span
+                class="track-artist">qfeileadh&amp;のあ</span></div>
             <div class="track"><span class="track-title">壊廊</span><span class="track-artist">Ice Plumes</span></div>
-            <div class="track"><span class="track-title">Nextreme Generation</span><span class="track-artist">A4paper</span></div>
-            <div class="track"><span class="track-title">Unleash the Shouts</span><span class="track-artist">anubasu-anubasu feat.kei iwata.</span></div>
+            <div class="track"><span class="track-title">Nextreme Generation</span><span
+                class="track-artist">A4paper</span></div>
+            <div class="track"><span class="track-title">Unleash the Shouts</span><span
+                class="track-artist">anubasu-anubasu feat.kei iwata.</span></div>
             <div class="track"><span class="track-title">WILDANCE</span><span class="track-artist">KAH</span></div>
           </div>
           <p class="note">※VARIETY楽曲は各権利者の許諾を得て収録しています。楽曲に関する権利は、それぞれの権利者に帰属します。</p>
@@ -506,10 +1013,11 @@ UMR
         <h2 class="section-title">REQUIRED</h2>
         <div class="info-grid">
           <div class="info-card">
-            <p><a href="https://www.kshootmania.com/download.html" target="_blank" rel="noopener" style="text-decoration:underline;text-underline-offset:3px;">K-Shoot MANIA v2.1.0以上必須</a></p>
+            <p><a href="https://www.kshootmania.com/download.html" target="_blank" rel="noopener"
+                style="text-decoration:underline;text-underline-offset:3px;">K-Shoot MANIA v2.1.0以上必須</a></p>
           </div>
         </div>
-        
+
       </div>
     </section>
 
@@ -520,7 +1028,10 @@ UMR
           <h3>差分譜面作成について</h3>
           <p>Over:Fl∅ntier収録楽曲について、規定の条件に従った差分譜面を作成・公開することができます。</p>
           <p>対応形式：</p>
-          <ul><li><code>.ksh</code></li><li><code>.kson</code></li></ul>
+          <ul>
+            <li><code>.ksh</code></li>
+            <li><code>.kson</code></li>
+          </ul>
           <p>差分譜面を公開する際は、以下の条件を守ってください。</p>
           <ul>
             <li>音源・画像等の素材を差分側へ同梱しないこと</li>
@@ -533,7 +1044,7 @@ UMR
         <div class="guideline-block">
           <h3>プレー動画、差分譜面の公開・配信について</h3>
           <p>本パッケージの同梱譜面や差分譜面のプレー動画や配信、各種SNSへの投稿は公序良俗に反さない限り、
-自由に行っていただいて構いません。</p>
+            自由に行っていただいて構いません。</p>
         </div>
         <div class="guideline-block">
           <h3>二次利用について</h3>
@@ -546,8 +1057,9 @@ UMR
           </ul>
         </div>
         <div class="guideline-block">
+        </div>
       </div>
-    </div></section>
+    </section>
 
     <section id="update-history">
       <div class="container">
@@ -555,19 +1067,27 @@ UMR
         <div class="history">
           <div class="history-item">
             <span class="version">v1.0.3</span><span class="date">2026.11.02</span>
-            <ul><li>WILDANCEの一部譜面の修正</li></ul>
+            <ul>
+              <li>WILDANCEの一部譜面の修正</li>
+            </ul>
           </div>
           <div class="history-item">
             <span class="version">v1.0.2</span><span class="date">2026.11.01</span>
-            <ul><li>WILDANCEの一部譜面の修正</li></ul>
+            <ul>
+              <li>WILDANCEの一部譜面の修正</li>
+            </ul>
           </div>
           <div class="history-item">
             <span class="version">v1.0.1</span><span class="date">2026.11.01</span>
-            <ul><li>Like the Blue、壊廊の一部譜面の修正</li></ul>
+            <ul>
+              <li>Like the Blue、壊廊の一部譜面の修正</li>
+            </ul>
           </div>
           <div class="history-item">
             <span class="version">v1.0.0</span><span class="date">2026.11.01</span>
-            <ul><li>Over:Fl∅ntier 公開</li></ul>
+            <ul>
+              <li>Over:Fl∅ntier 公開</li>
+            </ul>
           </div>
         </div>
       </div>
@@ -577,15 +1097,21 @@ UMR
       <div class="container">
         <h2 class="section-title">PARTICIPANT</h2>
         <div class="staff-grid">
-          <div class="staff-item"><span class="staff-role">Original Song Composers</span>Asymmetry Surge / boreas.log / C. Arpus / Kosuke Okamoto / lamaGkh / RyuL / sendaijiro / T2 / 空澄わやぬお / 龍崎カラム</div>
-          <div class="staff-item"><span class="staff-role">Guest Composers</span>A4paper / anubasu-anubasu feat.kei iwata. / DJ Raisei vs. Setca. feat. 咲良ゆの / Ice Plumes / KAH / qfeileadh&amp;のあ / siqlo</div>
-          <div class="staff-item"><span class="staff-role">Jacket / Visual</span>Caws / Chrocatz / Frill-buriburi-obake / Leruna / MAYU / UMR / いもねぎ / 天紅 </div>
-          <div class="staff-item"><span class="staff-role">Chart / Effector</span>Arpus / Caws / Chlorine / FAT1MA / HATENA / lower_bound / Luine / Мороже / Momori / rower_bound / Space Doctor Tama / Tsu99mo / Y / 神譜面 / 木枯らし 楓 / はるのん / バスケテ / らんかび / るびー </div>
+          <div class="staff-item"><span class="staff-role">Original Song Composers</span>Asymmetry Surge / boreas.log /
+            C. Arpus / Kosuke Okamoto / lamaGkh / RyuL / sendaijiro / T2 / 空澄わやぬお / 龍崎カラム</div>
+          <div class="staff-item"><span class="staff-role">Guest Composers</span>A4paper / anubasu-anubasu feat.kei
+            iwata. / DJ Raisei vs. Setca. feat. 咲良ゆの / Ice Plumes / KAH / qfeileadh&amp;のあ / siqlo</div>
+          <div class="staff-item"><span class="staff-role">Jacket / Visual</span>Caws / Chrocatz / Frill-buriburi-obake
+            / Leruna / MAYU / UMR / いもねぎ / 天紅 </div>
+          <div class="staff-item"><span class="staff-role">Chart / Effector</span>Arpus / Caws / Chlorine / FAT1MA /
+            HATENA / lower_bound / Luine / Мороже / Momori / rower_bound / Space Doctor Tama / Tsu99mo / Y / 神譜面 / 木枯らし
+            楓 / はるのん / バスケテ / らんかび / るびー </div>
         </div>
 
         <h2 class="section-title">OFFICIAL X</h2>
         <a class="x-link" href="https://x.com/overflontier" target="_blank" rel="noopener">Official X</a>
-        <p class="note">Over:Fl∅ntierの公開告知、更新情報、不具合・修正情報などをお知らせします。またこちらのアカウントのDMにて問い合わせを受け付けます。内容によっては対応しかねる場合がございます。</p>
+        <p class="note">Over:Fl∅ntierの公開告知、更新情報、不具合・修正情報などをお知らせします。またこちらのアカウントのDMにて問い合わせを受け付けます。内容によっては対応しかねる場合がございます。
+        </p>
       </div>
     </section>
   </main>
@@ -597,7 +1123,6 @@ UMR
       © Over:Fl∅ntier
     </div>
   </footer>
+</body>
 
-
-<script async="" src="./OverFlontier_files/hud" data-nf-variant="public" data-netlify-site-id="02a07849-5b1c-4d99-86e2-75637c1b559e" data-app-host="app.netlify.com" data-account-tier="free"></script>
-<iframe id="nl-badge-frame" title="Powered by Netlify" style="position: fixed; bottom: 0px; right: 0px; border: 0px; margin: 0px; padding: 0px; background: transparent; color-scheme: dark; z-index: 2147483645; width: 197px; height: 64px; clip-path: path(&quot;M 3 3 H 184 V 51 H 3 Z&quot;);" data-nl-ready="1" src="./OverFlontier_files/saved_resource.html"></iframe></body></html>
+</html>
